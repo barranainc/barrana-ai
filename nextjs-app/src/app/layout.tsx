@@ -1,17 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-
-// ─── Font ────────────────────────────────────────────────────────────────────
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -147,7 +137,7 @@ export default function RootLayout({
     <html
       lang="en-CA"
       suppressHydrationWarning
-      className={`${inter.variable} scroll-smooth`}
+      className="scroll-smooth"
     >
       <head>
         <script

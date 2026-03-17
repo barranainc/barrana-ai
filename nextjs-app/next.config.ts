@@ -14,17 +14,6 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
-  // ─── TypeScript ─────────────────────────────────────────────────────────────
-  typescript: {
-    // Set to true once the codebase is fully typed
-    ignoreBuildErrors: false,
-  },
-
-  // ─── ESLint ─────────────────────────────────────────────────────────────────
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-
   // ─── URL / Routing ──────────────────────────────────────────────────────────
   trailingSlash: false,
 

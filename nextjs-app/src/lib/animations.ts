@@ -16,7 +16,7 @@ export const fadeInUp: Variants = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
@@ -106,7 +106,7 @@ export const heroVariants: Variants = {
     transition: {
       duration: 0.8,
       delay: i * 0.15,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   }),
 };
@@ -121,7 +121,7 @@ export const heroBackgroundVariants: Variants = {
     scale: 1,
     transition: {
       duration: 1.2,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
@@ -139,7 +139,7 @@ export const sectionVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.65,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
@@ -154,7 +154,7 @@ export const sectionHeaderVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
@@ -189,7 +189,7 @@ export const cardEntranceVariants: Variants = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
@@ -231,7 +231,7 @@ export const statVariants: Variants = {
     scale: 1,
     transition: {
       duration: 0.6,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
@@ -273,7 +273,7 @@ export const modalVariants: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   },
   exit: {
     opacity: 0,

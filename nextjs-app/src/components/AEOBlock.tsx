@@ -64,7 +64,7 @@ export default function AEOBlock({
       initial={{ opacity: 0, x: -24 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
       role="region"
       aria-label={`Quick answer: ${question}`}
       className={`relative rounded-lg overflow-hidden ${className}`}

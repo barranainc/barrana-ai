@@ -83,7 +83,7 @@ function AccordionItem({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             className="overflow-hidden"
           >
             <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-0 bg-white border-t border-[#F3F4F6]">
