@@ -52,9 +52,11 @@ const topLevelLinks: NavItem[] = [
 function Dropdown({
   group,
   pathname,
+  scrolled,
 }: {
   group: DropdownGroup;
   pathname: string;
+  scrolled: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -71,6 +73,7 @@ function Dropdown({
   }, []);
 
   const isActive = group.items.some((item) => pathname === item.href);
+  const baseColor = scrolled ? "text-[#1F2937] hover:text-[#00B4D8]" : "text-white/90 hover:text-white";
 
   return (
     <div ref={ref} className="relative">
@@ -79,7 +82,7 @@ function Dropdown({
         aria-expanded={open}
         aria-haspopup="true"
         className={`flex items-center gap-1 px-1 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00B4D8] rounded ${
-          isActive ? "text-[#00B4D8]" : "text-[#1F2937] hover:text-[#00B4D8]"
+          isActive ? "text-[#00B4D8]" : baseColor
         }`}
       >
         {group.label}
@@ -397,6 +400,7 @@ export default function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const linkColor = scrolled ? "text-[#1F2937] hover:text-[#00B4D8]" : "text-white/90 hover:text-white";
 
   useEffect(() => {
     function handleScroll() {
@@ -434,7 +438,7 @@ export default function Navigation() {
             >
               <span
                 className={`text-xl font-bold transition-colors duration-300 ${
-                  scrolled ? "text-[#0A1628]" : "text-[#0A1628]"
+                  scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
               >
                 Barrana
@@ -442,7 +446,7 @@ export default function Navigation() {
               <span className="text-xl font-bold text-[#00B4D8]">.</span>
               <span
                 className={`text-xl font-bold transition-colors duration-300 ${
-                  scrolled ? "text-[#0A1628]" : "text-[#0A1628]"
+                  scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
               >
                 ai
@@ -457,6 +461,7 @@ export default function Navigation() {
               <Dropdown
                 group={{ label: "Solutions", items: solutionsItems }}
                 pathname={pathname}
+                scrolled={scrolled}
               />
 
               {topLevelLinks.map((link) => {
@@ -467,13 +472,14 @@ export default function Navigation() {
                       <Dropdown
                         group={{ label: "Locations", items: locationsItems }}
                         pathname={pathname}
+                        scrolled={scrolled}
                       />
                       <Link
                         href={link.href}
                         className={`px-1 py-2 text-sm font-medium transition-colors duration-200 ${
                           pathname === link.href
                             ? "text-[#00B4D8]"
-                            : "text-[#1F2937] hover:text-[#00B4D8]"
+                            : linkColor
                         }`}
                         aria-current={pathname === link.href ? "page" : undefined}
                       >
@@ -490,7 +496,7 @@ export default function Navigation() {
                     className={`px-1 py-2 text-sm font-medium transition-colors duration-200 ${
                       pathname === link.href
                         ? "text-[#00B4D8]"
-                        : "text-[#1F2937] hover:text-[#00B4D8]"
+                        : linkColor
                     }`}
                     aria-current={pathname === link.href ? "page" : undefined}
                   >
