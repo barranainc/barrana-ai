@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+/* ============================================================
+   BARRANA.AI DESIGN SYSTEM — GLOBAL STYLES
+   ============================================================ */
+
+/* ---- CSS Custom Properties ---- */
+:root {
+  /* Brand Colors */
+  --color-navy:       #0A1628;
+  --color-blue:       #1A5276;
+  --color-teal:       #00B4D8;
+  --color-white:      #FFFFFF;
+  --color-off-white:  #F7F9FC;
+  --color-light-grey: #E8ECF1;
+  --color-mid-grey:   #6B7280;
+  --color-charcoal:   #1F2937;
+  --color-success:    #10B981;
+  --color-danger:     #EF4444;
+  --color-warning:    #F59E0B;
+  --color-purple:     #7C3AED;
+
+  /* Semantic tokens */
+  --background:       var(--color-white);
+  --foreground:       var(--color-charcoal);
+  --muted:            var(--color-mid-grey);
+  --border:           var(--color-light-grey);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing & Radius */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 24px;
+
+  /* Shadows */
+  --shadow-card:       0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+  --shadow-card-hover: 0 20px 40px -8px rgba(10,22,40,0.18), 0 8px 16px -4px rgba(10,22,40,0.10);
+  --shadow-glow-teal:  0 0 32px rgba(0,180,216,0.30);
+}
+
+/* ---- Tailwind v4 Theme Registration ---- */
+@theme inline {
+  --color-navy:       var(--color-navy);
+  --color-blue:       var(--color-blue);
+  --color-teal:       var(--color-teal);
+  --color-off-white:  var(--color-off-white);
+  --color-light-grey: var(--color-light-grey);
+  --color-mid-grey:   var(--color-mid-grey);
+  --color-charcoal:   var(--color-charcoal);
+  --color-success:    var(--color-success);
+  --color-danger:     var(--color-danger);
+  --color-warning:    var(--color-warning);
+  --color-purple:     var(--color-purple);
+  --font-sans:        var(--font-sans);
+  --font-mono:        var(--font-mono);
+}
+
+/* ---- Base / Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #1F2937;
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Typography Defaults ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  line-height: 1.15;
+  color: #1F2937;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--color-teal);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-blue);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ---- Custom Animations ---- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 180, 216, 0.4); }
+  50%       { box-shadow: 0 0 0 16px rgba(0, 180, 216, 0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ---- Animation Utilities ---- */
+.animate-fadeIn     { animation: fadeIn     0.6s ease forwards; }
+.animate-slideUp    { animation: slideUp    0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slideInLeft { animation: slideInLeft 0.6s ease forwards; }
+.animate-float      { animation: float      4s ease-in-out infinite; }
+.animate-pulseGlow  { animation: pulseGlow  2s ease-in-out infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+/* ---- Tabular Numbers Utility ---- */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* ---- Custom Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-light-grey);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-mid-grey);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-light-grey) var(--color-off-white);
+}
+
+/* ---- Focus Styles ---- */
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Selection ---- */
+::selection {
+  background-color: rgba(0, 180, 216, 0.2);
+  color: #1F2937;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-fadeIn,
+  .animate-slideUp,
+  .animate-slideInLeft,
+  .animate-float,
+  .animate-pulseGlow,
+  .animate-shimmer {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---- Gradient Text Utility ---- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-teal) 0%, #0077A8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Section Padding Utility ---- */
+.section-padding {
+  padding-top: clamp(60px, 8vw, 120px);
+  padding-bottom: clamp(60px, 8vw, 120px);
+}
+
+/* ---- Container Utility ---- */
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 40px);
+  padding-right: clamp(16px, 4vw, 40px);
+}
